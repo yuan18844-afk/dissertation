@@ -3,3 +3,5 @@
 !franka_ws/
 !catkin_ws/
 !*.m
+!unity_script/
+!unity_script/**
