@@ -1,0 +1,26 @@
+<launch>
+  <!-- 启动 Franka 控制器 -->
+  <include file="$(find franka_control)/launch/franka_control.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <!-- 启动 joint state publisher 等基础功能 -->
+  <include file="$(find franka_description)/launch/state_controllers.launch" />
+
+  <!-- 启动 MoveIt 的 Move Group 节点 -->
+  <include file="$(find panda_moveit_config)/launch/move_group.launch" />
+
+  <!-- 启动 RViz 并加载 Panda MoveIt 配置 -->
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="config" value="true"/>
+  </include>
+
+  <!-- 可选：启动控制器管理器（推荐） -->
+  <include file="$(find panda_moveit_config)/launch/ros_controllers.launch" />
+
+  <!-- 参数定义 -->
+  <arg name="robot_ip" default="172.16.0.2"/>
+  <arg name="load_gripper" default="true"/>
+</launch>
+

@@ -1,0 +1,2 @@
+franka_ros/franka_control:franka_ros/franka_description:franka_ros/franka_example_controllers:franka_ros/franka_gazebo:franka_ros/franka_gripper:franka_ros/franka_hw:franka_ros/franka_msgs:franka_ros/franka_ros:franka_ros/franka_visualization:panda_moveit_config:ros_control_boilerplate:rosparam_shortcuts
+-DCMAKE_BUILD_TYPE=Release -G Unix Makefiles -DCATKIN_DEVEL_PREFIX=/home/yuan8868/franka_ws/devel_isolated -DCMAKE_INSTALL_PREFIX=/home/yuan8868/franka_ws/install_isolated

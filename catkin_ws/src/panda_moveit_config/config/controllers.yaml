@@ -1,0 +1,46 @@
+controller_list:
+  - name: position_joint_trajectory_controller
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - panda_joint1
+      - panda_joint2
+      - panda_joint3
+      - panda_joint4
+      - panda_joint5
+      - panda_joint6
+      - panda_joint7
+    constraints:
+      goal_time: 2.0
+      stopped_velocity_tolerance: 0.05
+      joint_constraints:
+        - joint_name: panda_joint1
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint2
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint3
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint4
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint5
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint6
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+        - joint_name: panda_joint7
+          goal_tolerance: 0.1
+          max_velocity: 0.2
+          max_acceleration: 0.2
+

@@ -1,0 +1,23 @@
+<launch>
+  <arg name="robot_ip" default="172.16.0.3"/>
+  <arg name="load_gripper" default="false"/>
+
+  <!-- 启动真实 Franka 硬件接口 + position controller -->
+  <include file="$(find franka_control)/launch/franka_control.launch">
+    <arg name="robot_ip" value="$(arg robot_ip)" />
+    <arg name="load_gripper" value="$(arg load_gripper)" />
+  </include>
+
+  <!-- 启动 MoveIt -->
+  <include file="$(find panda_moveit_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true" />
+    <arg name="info" value="true" />
+    <arg name="moveit_controller_manager" value="ros_control" />
+  </include>
+
+  <!-- 启动 RViz -->
+  <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch">
+    <arg name="rviz_config" value="$(dirname)/moveit.rviz"/>
+  </include>
+</launch>
+

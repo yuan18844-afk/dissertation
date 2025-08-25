@@ -1,0 +1,8 @@
+prefix=/home/yuan8868/catkin_ws/devel
+
+Name: franka_digital_twin
+Description: Description of franka_digital_twin
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

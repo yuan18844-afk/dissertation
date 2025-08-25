@@ -1,0 +1,28 @@
+<launch>
+
+  <include file="$(find franka_control)/launch/franka_control.launch">
+    <arg name="robot_ip" value="172.16.0.3"/>
+    <arg name="load_gripper" value="false"/>
+  </include>
+
+
+  <include file="$(find franka_gazebo)/launch/panda.launch">
+    <arg name="use_gripper" value="false" />
+    <arg name="load_robot_state_publisher" value="false"/> <
+  </include>
+
+ 
+  <rosparam file="$(find franka_digital_twin)/config/effort_joint_trajectory_controller.yaml" command="load" />
+  <node name="trajectory_spawner" pkg="controller_manager" type="spawner"
+        args="effort_joint_trajectory_controller"
+        output="screen" />
+
+
+  <node name="robot_state_publisher_gazebo" pkg="robot_state_publisher" type="robot_state_publisher"
+        ns="gazebo" output="screen" />
+
+
+  <node name="real_to_gazebo_sync" pkg="franka_digital_twin" type="joint_states_to_trajectory.py"
+        output="screen" />
+</launch>
+

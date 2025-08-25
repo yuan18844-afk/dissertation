@@ -1,0 +1,18 @@
+<launch>
+
+  <include file="$(find franka_control)/launch/franka_control.launch">
+    <arg name="robot_ip" value="172.16.0.3"/>
+    <arg name="load_gripper" value="false"/>
+  </include>
+
+
+  <rosparam file="$(find franka_digital_twin)/config/franka_real_controllers.yaml" command="load" />
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="position_joint_trajectory_controller franka_state_controller"
+        output="screen">
+    <param name="wait_for" value="true"/>
+  </node>
+</launch>
+

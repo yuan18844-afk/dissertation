@@ -1,0 +1,24 @@
+<launch>
+  <arg name="world_file" default="$(find franka_digital_twin)/worlds/my_franka_world.world"/>
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_file)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+  </include>
+  <param name="robot_description" command="$(find xacro)/xacro --inorder $(find franka_description)/robots/panda/panda.urdf.xacro"/>
+
+ 
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-urdf -model panda -param robot_description" />
+
+  <rosparam file="$(find franka_digital_twin)/config/joint_group_position_controller.yaml" command="load"/>
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="position_joint_trajectory_controller joint_state_controller"
+        output="screen">
+    <param name="wait_for" value="true"/>
+  </node>
+
+</launch>

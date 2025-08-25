@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <plugin name="gazebo_ros_api_plugin" filename="libgazebo_ros_api_plugin.so">
+      <legacyMode>false</legacyMode>
+      <robotNamespace>/</robotNamespace>
+    </plugin>
+
+    <model name="franka_robot">
+      <include>
+        <uri>model://path/to/your/robot_model.urdf</uri>
+      </include>
+    </model>
+
+  </world>
+</sdf>

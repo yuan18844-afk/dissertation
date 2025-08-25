@@ -1,0 +1,11 @@
+trajectory_execution:
+  moveit_manage_controllers: true
+  allowed_execution_duration_scaling: 1.2
+  allowed_goal_duration_margin: 0.5
+  execution_duration_monitoring: true
+  # 高密度插值，保证 1kHz 通信
+  moveit_sim_hw_interface:
+    joint_model_group_controller:
+      panda_arm:
+        interpolation_resolution: 0.002
+
