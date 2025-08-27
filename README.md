@@ -1,4 +1,4 @@
-# Robot Arm Digital Twin - Communication Latency Analysis
+# Robot Arm Digital Twin 
 
 ## Overview
 
@@ -6,7 +6,7 @@ A ROS-based digital twin system for analyzing communication latency and accuracy
 
 ## Project Structure
 
-
+```
 dissertation-main/
 ├── unity_script/                    # Unity scripts
 │   ├── JointStatePublisher.cs
@@ -29,13 +29,12 @@ dissertation-main/
 │       ├── ROS-TCP-Endpoint/
 │       └── franka_ros/
 └── *.m                            # MATLAB analysis scripts
-
+```
 
 ## MATLAB Analysis Scripts
 
 - `analyze_communication_latency.m` - Communication delay analysis
 - `robot_accuracy_comparison.m` - Accuracy comparison between real, Gazebo, and Unity
-- `calculate_unity_real_metrics.m` - Unity vs real robot metrics
 - `trajectory_comparison.m` - Trajectory visualization and comparison
 - `latency.m`, `latency2.m` - Latency calculation tools
 - `Mse_rmse_lentency.m` - MSE/RMSE error analysis
@@ -64,17 +63,6 @@ source devel/setup.bash
 cd ../catkin_ws
 catkin_make
 source devel/setup.bash
-```
-
-## Usage
-
-### Data Analysis
-```matlab
-% Run analysis scripts
-analyze_communication_latency_fixed()
-robot_accuracy_comparison_final()
-calculate_unity_real_metrics_complete()
-trajectory_comparison
 ```
 
 ## Notes
